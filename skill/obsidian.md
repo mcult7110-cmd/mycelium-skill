@@ -1,70 +1,68 @@
-# Obsidian setup
+# Obsidian wiring
 
-This skill can be connected to an Obsidian vault in a few simple ways.
+This is how the skill connects to your Obsidian vault.
 
-## Goal
+## Why
 
-The idea is to search your vault for:
+Your notes are one of the memory layers. This skill treats them as a living knowledge web, not a folder of dead files.
 
-- keywords
-- concept clusters
-- linked notes and backlinks
-- related markdown files
+## What to search
 
-## Recommended design
+The script searches:
 
-Use a local vault path like this example:
+- file names
+- file contents
+- headings
+- yaml frontmatter
+- tag values
+- backlink-like references
+
+## What counts as a hit
+
+A file counts as relevant if it contains the current concept or a close semantic neighbor such as:
+
+- fear
+- static
+- pressure
+- signal
+- memory
+- interference
+- anomaly
+- pattern
+- energy
+
+## Vault path
+
+Set your path in `.env`:
 
 ```bash
-/Users/yourname/Library/Mobile Documents/iCloud~md~obsidian/Documents/YourVault
+OBSIDIAN_VAULT_PATH=/Users/yourname/Library/Mobile Documents/iCloud~md~obsidian/Documents/YourVault
 ```
 
-Or a path like:
+Or on Windows:
 
 ```bash
-C:/Users/YourName/Documents/ObsidianVault
+OBSIDIAN_VAULT_PATH=C:/Users/YourName/Documents/ObsidianVault
 ```
 
-## What to search for
+## Search behavior
 
-When a user says a feeling or concept, this skill can:
+The connector should prefer:
 
-- search note titles
-- search file content
-- scan headings and frontmatter
-- look for backlinks or related notes
-- find nearby words or semantic neighbors
-
-## Example note style
-
-This helps the connector work better if your notes use consistent tags or metadata, for example:
-
-```yaml
----
-title: Fear
-category: emotion
-aliases:
-  - anxiety
-  - dread
-  - static
----
-```
+- the exact words the user said
+- near-neighbor words in the same cluster
+- notes with strong title matches
+- notes that talk about emotional, conceptual, or symbolic meaning
 
 ## Best practice
 
-Keep the vault organized enough that these searches make sense, even if the structure is messy.
+Your notes do not need to be perfect, but they should have a few recurring anchors. That makes the network stronger.
 
-You do not need perfect organization. The point is to make: idea -> note -> connection possible.
+You want:
 
-## Example use
+- recurring names or themes
+- repeated tags
+- links between pages
+- a few clear concepts with messy edges
 
-If the user says "static", the skill can search for:
-
-- static
-- noise
-- interference
-- signal
-- pressure
-- frequency
-
-Then it can connect the literal and metaphorical meanings.
+This is not a clean database. It is a living web.

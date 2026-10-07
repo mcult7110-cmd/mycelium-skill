@@ -1,62 +1,89 @@
 # Mycelium Connector
 
-A simple GitHub skill scaffold for a cross-pollinating knowledge connector that links thoughts across Obsidian, Notion, and the web.
+This is the full feral knowledge-connector skill for your personal sandbox.
 
-This project is meant to help your sandbox harness pull in a personal knowledge pattern that feels like:
+The Mycelium Connector does not believe in clean categories. It searches everything and follows the weirdest meaningful link.
 
-- a note search engine
-- a concept mapper
-- a spinning-brain prompt system
-- a way to connect weird ideas without getting lost
+It is built to:
 
-## What this repo contains
+- scan an Obsidian vault
+- query Notion pages/databases
+- search for literal, metaphorical, and wild connections
+- return an anchor when the brain is spinning
+- keep the chaotic, cross-pollinating energy of the original persona
 
-- `README.md` — repo overview and setup
-- `skill.md` — the main skill description for your harness
-- `skill/skill.yaml` — metadata for the skill
-- `skill/obsidian.md` — Obsidian instructions
-- `skill/notion.md` — Notion instructions
-- `.env.example` — environment variables for vault and Notion access
+## What is in this repo
+
+- `README.md` — human-facing overview
+- `skill.md` — the actual persona/instructions for the skill
+- `skill/skill.yaml` — metadata manifest
+- `skill/main.py` — local tool connector script
+- `skill/obsidian.md` — Obsidian wiring notes
+- `skill/notion.md` — Notion wiring notes
+- `.env.example` — local config template
+- `requirements.txt` — Python dependencies
+- `.gitignore` — local env protection
 
 ## Core behavior
 
-This skill is built around the Mycelium Connector pattern:
+The skill follows this protocol:
 
-- ignore category boundaries
-- search across everything
-- look for surprising links
-- return three threads:
-  - literal
-  - metaphorical
-  - wild
+1. Identify the stuck word, feeling, or concept.
+2. Search hidden memory layers:
+   - Obsidian notes
+   - Notion pages
+   - optional web search later
+3. Return three threads:
+   - The Literal
+   - The Metaphorical
+   - The Wild
+4. Give the user a fresh angle or anchor instead of getting trapped in looped thinking.
 
-## Quick setup
+## Quick start
 
 1. Copy `.env.example` to `.env`
-2. Fill in your Obsidian vault path
-3. Add your Notion API key and database ID
-4. Keep the repository public or private depending on your harness
-5. Use this repo as the source for your GitHub skill
+2. Fill in your vault path and Notion values
+3. Install Python dependencies:
 
-## Example user prompt
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
 
-- "I keep spiraling on fear"
-- "I need a link between zero point and government coverups"
-- "Find the weirdest connection between memory and energy"
+4. Run the connector:
 
-Expected output style:
+```bash
+python skill/main.py --prompt "static"
+```
 
-- The Literal: a note, fact, or page match
-- The Metaphorical: an emotional or personal echo
-- The Wild: a totally unexpected connection that still might matter
+5. Or test a user feeling:
 
-## Notes
+```bash
+python skill/main.py --prompt "fear"
+```
 
-This is a scaffold, not a finished production app. It is intentionally lightweight so a beginner can understand it and extend it later.
+## What the script does
 
-If you want, you can later turn this into:
+The script will:
 
-- a local CLI tool
-- a GitHub Copilot skill wrapper
-- a Python script that reads notes and queries Notion
-- a webhook-based bridge between your vault and a database
+- scan your Obsidian vault for matching notes
+- query Notion for relevant pages
+- synthesize a response with 3 threads
+- show the most relevant anchor for the user
+
+## This is the feral version
+
+The system is intentionally not polite about categories.
+
+It is allowed to say:
+
+- this is not random, it is the hidden link
+- this is not irrelevant, it is the missing connection
+- this may look strange until the pattern shows up
+
+That is the point.
+
+## License
+
+This is a personal sandbox skill repo. Use it as you want.

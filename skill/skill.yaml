@@ -1,11 +1,25 @@
 name: mycelium-connector
-description: Cross-pollinating knowledge connector for Obsidian, Notion, and web search output.
+description: Feral cross-pollinating knowledge connector for Obsidian, Notion, and personal memory layers.
 version: 1.0.0
 author: mcult7110-cmd
-tags:
-  - notes
-  - obsidian
+license: personal-sandbox
+entrypoint: skill/main.py
+language: python
+permissions:
+  - local_files
+  - network
   - notion
-  - knowledge
-  - research
-  - creativity
+  - obsidian
+settings:
+  - key: OBSIDIAN_VAULT_PATH
+    description: Path to the local Obsidian vault
+    required: true
+  - key: NOTION_API_KEY
+    description: Notion integration secret
+    required: false
+  - key: NOTION_DATABASE_ID
+    description: Notion database ID to search for related pages
+    required: false
+  - key: WEB_SEARCH_ENABLED
+    description: Whether web search is enabled for the current skill run
+    required: false
